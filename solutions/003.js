@@ -9,6 +9,11 @@
 
 import { removeAllFactors } from '../utils/math.js';
 
+export const metadata = {
+	question: 'What is the largest prime factor of the number 600851475143?',
+	solution: () => problem003v2(600851475143)
+};
+
 /**
  * Naive solution. Calculates the largest prime factor of `n` by iterating over
  * all possible factors of the remaining quotient.

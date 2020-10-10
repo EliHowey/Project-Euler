@@ -10,6 +10,11 @@
 
 import { isPalindrome } from '../utils/strings.js';
 
+export const metadata = {
+	question: 'Find the largest palindrome made from the product of two 3-digit numbers.',
+	solution: () => problem004v1(100, 1000)
+};
+
 /**
  * Calculates the largest palindrome that is a product of numbers
  * from `lowerBound` to `upperBound`, left-inclusive.
@@ -19,7 +24,7 @@ import { isPalindrome } from '../utils/strings.js';
  * @param {number} upperBound Largest number to use as a factor (exclusive)
  * @returns The largest product of numbers in [lowerBound,upperBound) that is a palindrome
  */
-export function problem004(lowerBound, upperBound) {
+export function problem004v1(lowerBound, upperBound) {
 	let a = lowerBound;
 	let largestPalindrome = 0;
 

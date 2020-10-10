@@ -11,6 +11,12 @@
  * four million, find the sum of the even-valued terms.
  */
 
+export const metadata = {
+	question:
+		'By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.',
+	solution: () => problem002v2(4000000)
+};
+
 /**
  * Naive solution. Iteratively checks every Fibonacci number, summing only the
  * even ones.

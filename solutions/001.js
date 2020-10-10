@@ -10,6 +10,11 @@
 
 import { sumDivisibleByN } from '../utils/math.js';
 
+export const metadata = {
+	question: 'Find the sum of all the multiples of 3 or 5 below 1000.',
+	solution: () => problem001v2(1000)
+};
+
 /**
  * Naive solution. Loops over all numbers less than the upper bound, eliminating
  * those that are not multiples of 3 or 5.
