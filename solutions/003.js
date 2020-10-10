@@ -1,24 +1,21 @@
 /**
  * Project Euler Problem 3
  * Largest prime factor
- *
- * The prime factors of 13195 are 5, 7, 13 and 29.
- *
- * What is the largest prime factor of the number 600851475143?
  */
 
 import { removeAllFactors } from '../utils/math.js';
 
 const PRIME_TO_FACTOR = 600851475143;
 
-export const metadata = {
-	question: 'What is the largest prime factor of the number 600851475143?',
-	solution: () => problem003v1(PRIME_TO_FACTOR),
-	versions: [
-		() => problem003v0(PRIME_TO_FACTOR),
-		() => problem003v1(PRIME_TO_FACTOR)
-	]
-};
+export const question = [
+	'The prime factors of 13195 are 5, 7, 13 and 29.',
+	'What is the largest prime factor of the number 600851475143?'
+];
+
+export const solutions = [
+	() => problem003v0(PRIME_TO_FACTOR),
+	() => problem003v1(PRIME_TO_FACTOR)
+];
 
 /**
  * Naive solution. Calculates the largest prime factor of `n` by iterating over

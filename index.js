@@ -10,34 +10,31 @@ const main = async () => {
 			.toString()
 			.padStart(3, '0')}.js`;
 
-		const { metadata } = await import(filename);
+		const { question, solutions } = await import(filename);
 
-		if (metadata) {
-			console.log(`\nProblem ${problemNumber}`);
-			console.log(metadata.question + '\n');
+		if (question) {
+			console.log(`\nProblem ${problemNumber}:`);
 
-			if (metadata.versions) {
-				const runtimes = metadata.versions.map(getSolutionData);
-
-				console.table(runtimes);
-			} else if (
-				metadata.solution &&
-				typeof metadata.solution === 'function'
-			) {
-				const startTime = process.hrtime();
-				const solution = metadata.solution();
-				const [seconds, nanoseconds] = process.hrtime(startTime);
-
-				console.log(
-					`Solution (${getDurationMs(seconds, nanoseconds)}ms):`
-				);
-				console.log(solution);
+			if (typeof question === 'string') {
+				console.log(question + '\n');
+			} else {
+				console.log(question.join('\n\n') + '\n');
 			}
 		} else {
-			console.log(`No info found for Problem ${problemNumber}`);
+			console.error(`No question text for Problem ${problemNumber}`);
+		}
+
+		if (solutions && solutions.length > 0) {
+			console.log('Solutions:');
+			const runtimes = solutions.map(getSolutionData);
+			console.table(runtimes);
+		} else {
+			console.log(`No solutions found for Problem ${problemNumber}`);
 		}
 	} catch (error) {
-		console.log(error);
+		console.log(
+			`Could not find solution file for Problem ${problemNumber}`
+		);
 	}
 };
 

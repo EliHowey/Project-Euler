@@ -13,15 +13,15 @@ import { isPalindrome } from '../utils/strings.js';
 const LOWER_BOUND = 100;
 const UPPER_BOUND = 1000;
 
-export const metadata = {
-	question:
-		'Find the largest palindrome made from the product of two 3-digit numbers.',
-	solution: () => problem004v1(LOWER_BOUND, UPPER_BOUND),
-	versions: [
-		() => problem004v0(LOWER_BOUND, UPPER_BOUND),
-		() => problem004v1(LOWER_BOUND, UPPER_BOUND)
-	]
-};
+export const question = [
+	'A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.',
+	'Find the largest palindrome made from the product of two 3-digit numbers.'
+];
+
+export const solutions = [
+	() => problem004v0(LOWER_BOUND, UPPER_BOUND),
+	() => problem004v1(LOWER_BOUND, UPPER_BOUND)
+];
 
 /**
  * Calculates the largest palindrome that is a product of numbers

@@ -1,22 +1,21 @@
 /**
  * Project Euler Problem 1
  * Multiples of 3 and 5
- *
- * If we list all the natural numbers below 10 that are multiples of 3 or 5, we
- * get 3, 5, 6 and 9. The sum of these multiples is 23.
- *
- * Find the sum of all the multiples of 3 or 5 below 1000.
  */
 
 import { sumDivisibleByN } from '../utils/math.js';
 
 const UPPER_BOUND = 1000;
 
-export const metadata = {
-	question: 'Find the sum of all the multiples of 3 or 5 below 1000.',
-	solution: () => problem001v1(UPPER_BOUND),
-	versions: [() => problem001v0(UPPER_BOUND), () => problem001v1(UPPER_BOUND)]
-};
+export const question = [
+	'If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.',
+	'Find the sum of all the multiples of 3 or 5 below 1000.'
+];
+
+export const solutions = [
+	() => problem001v0(UPPER_BOUND),
+	() => problem001v1(UPPER_BOUND)
+];
 
 /**
  * Naive solution. Loops over all numbers less than the upper bound, eliminating
