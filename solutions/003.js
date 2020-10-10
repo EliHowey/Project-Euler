@@ -68,5 +68,5 @@ export function problem003v2(n) {
 
 	// Either this process discovered all factors of n, or the quotient is
 	// itself prime and greater than sqrt(n)
-	return n === 1 ? largestFactor : quotient;
+	return quotient === 1 ? largestFactor : quotient;
 }
