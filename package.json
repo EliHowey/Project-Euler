@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
+		"coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
 		"test": "NODE_OPTIONS=--experimental-vm-modules jest"
 	},
 	"repository": {
