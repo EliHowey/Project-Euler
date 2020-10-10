@@ -3,6 +3,23 @@
  */
 
 /**
+ * If `n = k * factor^i` for some `i`, this returns `k`.
+ *
+ * @param {*} n Natural number
+ * @param {*} factor Factor of `n` to remove
+ * @returns The result of dividing `n` by `factor` as many times as possible
+ */
+export function removeAllFactors(n, factor) {
+	let quotient = n;
+
+	while (quotient % factor === 0) {
+		quotient /= factor;
+	}
+
+	return quotient;
+}
+
+/**
  * Calculates the sum of the natural numbers divisible by `n` and less than
  * `upperBound`.
  *

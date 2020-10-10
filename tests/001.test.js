@@ -1,30 +1,30 @@
 import { describe, expect, test } from '@jest/globals';
-import { problem001Naive, problem001Optimized } from '../solutions/001.js';
+import { problem001v1, problem001v2 } from '../solutions/001.js';
 
-describe('Naive Solution', () => {
+describe('Problem 001 - Solution 1', () => {
 	test('sums multiples of 3 and 5 below 10', () => {
-		expect(problem001Naive(10)).toBe(23);
+		expect(problem001v1(10)).toBe(23);
 	});
 
 	test('sums multiples of 3 and 5 below 1000', () => {
-		expect(problem001Naive(1000)).toBe(233168);
+		expect(problem001v1(1000)).toBe(233168);
 	});
 
 	test('(performance) sums multiples of 3 and 5 below 1000000', () => {
-		expect(problem001Naive(1000000)).toBe(233333166668);
+		expect(problem001v1(1000000)).toBe(233333166668);
 	});
 });
 
-describe('Optimized Solution', () => {
+describe('Problem 001 - Solution 2', () => {
 	test('sums multiples of 3 and 5 below 10', () => {
-		expect(problem001Optimized(10)).toBe(23);
+		expect(problem001v2(10)).toBe(23);
 	});
 
 	test('sums multiples of 3 and 5 below 1000', () => {
-		expect(problem001Optimized(1000)).toBe(233168);
+		expect(problem001v2(1000)).toBe(233168);
 	});
 
 	test('(performance) sums multiples of 3 and 5 below 1000000', () => {
-		expect(problem001Optimized(1000000)).toBe(233333166668);
+		expect(problem001v2(1000000)).toBe(233333166668);
 	});
 });

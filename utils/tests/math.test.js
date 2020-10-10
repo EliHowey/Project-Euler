@@ -1,6 +1,22 @@
 import { describe, expect, test } from '@jest/globals';
 import * as utils from '../math';
 
+describe('removeAllFactors', () => {
+	const n = 2 ** 3 * 3; // = 24
+
+	test('leaves n unchanged if it is not divisible by factor', () => {
+		expect(utils.removeAllFactors(n, 5)).toBe(n);
+	});
+
+	test('removes a factor that appears once in n', () => {
+		expect(utils.removeAllFactors(n, 3)).toBe(n / 3);
+	});
+
+	test('removes a factor that appears more than once in n', () => {
+		expect(utils.removeAllFactors(n, 2)).toBe(n / 2 ** 3);
+	});
+});
+
 describe('sumDivisibleByN', () => {
 	test('sums all numbers from 1 to upperBound', () => {
 		expect(utils.sumDivisibleByN(1, 1)).toBe(0);

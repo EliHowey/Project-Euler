@@ -18,7 +18,7 @@ import { sumDivisibleByN } from '../utils/math.js';
  * @param {number} upperBound Maximum number to include in the sum
  * @returns The sum of all multiples of 3 or 5 less than `upperBound`
  */
-export function problem001Naive(upperBound) {
+export function problem001v1(upperBound) {
 	let sum = 0;
 
 	for (let i = 1; i < upperBound; i++) {
@@ -38,7 +38,7 @@ export function problem001Naive(upperBound) {
  * @param {number} upperBound Maximum number to include in the sum
  * @returns The sum of all multiples of 3 or 5 less than `upperBound`
  */
-export function problem001Optimized(upperBound) {
+export function problem001v2(upperBound) {
 	return (
 		sumDivisibleByN(3, upperBound) +
 		sumDivisibleByN(5, upperBound) -
