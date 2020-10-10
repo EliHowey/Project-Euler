@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { problem001v0, problem001v1, solutions } from '../solutions/001.js';
+import { problem001v0, problem001v1, solutions } from './001.js';
 
 describe('Problem 001', () => {
 	test('Correctness', () => {

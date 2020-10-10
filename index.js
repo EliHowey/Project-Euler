@@ -1,4 +1,9 @@
+import * as fs from 'fs';
 import * as readline from 'readline-sync';
+
+const RESET = '\x1b[0m';
+const BOLD = '\x1b[1m';
+const DIM = '\x1b[2m';
 
 const main = async () => {
 	const problemNumber = readline.questionInt(
@@ -6,39 +11,80 @@ const main = async () => {
 	);
 
 	try {
-		const filename = `./solutions/${problemNumber
-			.toString()
-			.padStart(3, '0')}.js`;
+		const metadata = getMetadata(problemNumber);
+		printMetadata(metadata);
 
-		const { question, solutions } = await import(filename);
-
-		if (question) {
-			console.log(`\nProblem ${problemNumber}:`);
-
-			if (typeof question === 'string') {
-				console.log(question + '\n');
-			} else {
-				console.log(question.join('\n\n') + '\n');
-			}
-		} else {
-			console.error(`No question text for Problem ${problemNumber}`);
-		}
-
-		if (solutions && solutions.length > 0) {
-			console.log('Solutions:');
-			const runtimes = solutions.map(getSolutionData);
-			console.table(runtimes);
-		} else {
-			console.log(`No solutions found for Problem ${problemNumber}`);
-		}
+		const solutions = await getSolutions(problemNumber);
+		printSolutions(problemNumber, solutions);
 	} catch (error) {
-		console.log(
-			`Could not find solution file for Problem ${problemNumber}`
-		);
+		console.error(error.message);
 	}
 };
 
 main();
+
+function getMetadata(problemNumber) {
+	try {
+		const normalizedProblemNumber = problemNumber
+			.toString()
+			.padStart(3, '0');
+
+		const metadataBuffer = fs.readFileSync(
+			`./metadata/${normalizedProblemNumber}.json`
+		);
+		return JSON.parse(metadataBuffer);
+	} catch (error) {
+		throw new Error(
+			`Could not fetch metadata for Problem ${problemNumber}`
+		);
+	}
+}
+
+function printMetadata(metadata) {
+	if (!metadata) {
+		return;
+	}
+
+	console.log(BOLD + `\nProblem ${metadata.problem}: ${metadata.name}` + RESET);
+
+	if (metadata.difficulty) {
+		console.log(`Difficulty: ${metadata.difficulty * 100}%\n`);
+	} else {
+		console.log('\n');
+	}
+
+	if (typeof metadata.question === 'string') {
+		console.log(DIM + metadata.question + RESET + '\n');
+	} else {
+		console.log(DIM + metadata.question.join('\n\n') + RESET + '\n');
+	}
+}
+
+async function getSolutions(problemNumber) {
+	try {
+		const normalizedProblemNumber = problemNumber
+			.toString()
+			.padStart(3, '0');
+
+		const filename = `./solutions/${normalizedProblemNumber}/${normalizedProblemNumber}.js`;
+		const { solutions } = await import(filename);
+		return solutions;
+	} catch (error) {
+		throw new Error(
+			`Could not fetch solutions for Problem ${problemNumber}`
+		);
+	}
+}
+
+function printSolutions(problemNumber, solutions) {
+	if (solutions && solutions.length > 0) {
+		console.log('Solutions:');
+		const runtimes = solutions.map(getSolutionData);
+		console.table(runtimes);
+	} else {
+		console.log(`No solutions found for Problem ${problemNumber}`);
+	}
+}
 
 function getSolutionData(solutionFunction, index) {
 	try {
