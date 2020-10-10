@@ -1,0 +1,31 @@
+{
+	"name": "project-euler-js",
+	"version": "1.0.0",
+	"description": "Javascript solutions to Project Euler problems",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "NODE_OPTIONS=--experimental-vm-modules jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/EliHowey/project-euler-js.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/EliHowey/project-euler-js/issues"
+	},
+	"homepage": "https://github.com/EliHowey/project-euler-js#readme",
+	"devDependencies": {
+		"@jest/globals": "^26.5.2",
+		"eslint": "^7.11.0",
+		"eslint-config-standard": "^14.1.1",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-standard": "^4.0.1",
+		"jest": "^26.5.2"
+	}
+}
