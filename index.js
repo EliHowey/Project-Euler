@@ -16,14 +16,23 @@ const main = async () => {
 			console.log(`\nProblem ${problemNumber}`);
 			console.log(metadata.question + '\n');
 
-			const startTime = process.hrtime();
-			const solution = metadata.solution();
-			const [seconds, nanoseconds] = process.hrtime(startTime);
+			if (metadata.versions) {
+				const runtimes = metadata.versions.map(getSolutionData);
 
-			console.log(
-				`Solution (${getDurationString(seconds, nanoseconds)}):`
-			);
-			console.log(solution);
+				console.table(runtimes);
+			} else if (
+				metadata.solution &&
+				typeof metadata.solution === 'function'
+			) {
+				const startTime = process.hrtime();
+				const solution = metadata.solution();
+				const [seconds, nanoseconds] = process.hrtime(startTime);
+
+				console.log(
+					`Solution (${getDurationMs(seconds, nanoseconds)}ms):`
+				);
+				console.log(solution);
+			}
 		} else {
 			console.log(`No info found for Problem ${problemNumber}`);
 		}
@@ -34,12 +43,24 @@ const main = async () => {
 
 main();
 
-function getDurationString(seconds, nanoseconds) {
-	const ms = (nanoseconds / 1000000).toFixed(6);
+function getSolutionData(solutionFunction, index) {
+	try {
+		const startTime = process.hrtime();
+		const solution = solutionFunction();
+		const [seconds, nanoseconds] = process.hrtime(startTime);
 
-	if (!seconds) {
-		return `${ms}ms`;
+		return {
+			Result: solution,
+			'Duration (ms)': getDurationMs(seconds, nanoseconds)
+		};
+	} catch (error) {
+		console.error(
+			`Could not run solution${index ? ' ' + index : ''}:`,
+			error
+		);
 	}
+}
 
-	return `${seconds}.${ms}s`;
+function getDurationMs(seconds, nanoseconds) {
+	return seconds * 1000 + nanoseconds / 1000000;
 }

@@ -10,9 +10,12 @@
 
 import { sumDivisibleByN } from '../utils/math.js';
 
+const UPPER_BOUND = 1000;
+
 export const metadata = {
 	question: 'Find the sum of all the multiples of 3 or 5 below 1000.',
-	solution: () => problem001v2(1000)
+	solution: () => problem001v1(UPPER_BOUND),
+	versions: [() => problem001v0(UPPER_BOUND), () => problem001v1(UPPER_BOUND)]
 };
 
 /**
@@ -23,7 +26,7 @@ export const metadata = {
  * @param {number} upperBound Maximum number to include in the sum
  * @returns The sum of all multiples of 3 or 5 less than `upperBound`
  */
-export function problem001v1(upperBound) {
+export function problem001v0(upperBound) {
 	let sum = 0;
 
 	for (let i = 1; i < upperBound; i++) {
@@ -43,7 +46,7 @@ export function problem001v1(upperBound) {
  * @param {number} upperBound Maximum number to include in the sum
  * @returns The sum of all multiples of 3 or 5 less than `upperBound`
  */
-export function problem001v2(upperBound) {
+export function problem001v1(upperBound) {
 	return (
 		sumDivisibleByN(3, upperBound) +
 		sumDivisibleByN(5, upperBound) -

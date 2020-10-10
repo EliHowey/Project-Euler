@@ -11,10 +11,16 @@
  * four million, find the sum of the even-valued terms.
  */
 
+const UPPER_BOUND = 4000000;
+
 export const metadata = {
 	question:
 		'By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.',
-	solution: () => problem002v2(4000000)
+	solution: () => problem002v1(UPPER_BOUND),
+	versions: [
+		() => problem002v0(UPPER_BOUND),
+		() => problem002v1(UPPER_BOUND)
+	]
 };
 
 /**
@@ -25,7 +31,7 @@ export const metadata = {
  * @param {number} upperBound Upper bound on the numbers to include in the sum
  * @returns The sum of all Fibonacci numbers less than `upperBound`
  */
-export function problem002v1(upperBound) {
+export function problem002v0(upperBound) {
 	let sum = 0;
 	let a = 1;
 	let b = 1;
@@ -50,7 +56,7 @@ export function problem002v1(upperBound) {
  * @param {number} upperBound Upper bound on the numbers to include in the sum
  * @returns The sum of all Fibonacci numbers less than `upperBound`
  */
-export function problem002v2(upperBound) {
+export function problem002v1(upperBound) {
 	let sum = 0;
 	let a = 1;
 	let b = 1;

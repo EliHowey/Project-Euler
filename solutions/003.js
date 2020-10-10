@@ -9,9 +9,15 @@
 
 import { removeAllFactors } from '../utils/math.js';
 
+const PRIME_TO_FACTOR = 600851475143;
+
 export const metadata = {
 	question: 'What is the largest prime factor of the number 600851475143?',
-	solution: () => problem003v2(600851475143)
+	solution: () => problem003v1(PRIME_TO_FACTOR),
+	versions: [
+		() => problem003v0(PRIME_TO_FACTOR),
+		() => problem003v1(PRIME_TO_FACTOR)
+	]
 };
 
 /**
@@ -22,7 +28,7 @@ export const metadata = {
  * @param {number} n Natural number
  * @returns The largest prime factor of `n`
  */
-export function problem003v1(n) {
+export function problem003v0(n) {
 	let quotient = n;
 	let factor = 2;
 	let largestFactor = 1;
@@ -48,7 +54,7 @@ export function problem003v1(n) {
  * @param {*} n
  * @returns
  */
-export function problem003v2(n) {
+export function problem003v1(n) {
 	let quotient = n;
 	let largestFactor = 1;
 
