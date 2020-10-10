@@ -3,6 +3,37 @@
  */
 
 /**
+ * Finds the greatest common divisor of two numbers,
+ * using the Euclidean algorithm.
+ *
+ * @export
+ * @param {number} a
+ * @param {number} b
+ * @returns The greatest common divisor of a and b
+ */
+export function gcd(a, b) {
+	while (b !== 0) {
+		const temp = a % b;
+		a = b;
+		b = temp;
+	}
+
+	return a;
+}
+
+/**
+ * Finds the least common multiple of two numbers.
+ *
+ * @export
+ * @param {number} a
+ * @param {number} b
+ * @returns The least common multiple of a and b
+ */
+export function lcm(a, b) {
+	return a * b / gcd(a, b);
+}
+
+/**
  * If `n = k * factor^i` for some `i`, this returns `k`.
  *
  * @param {*} n Natural number
