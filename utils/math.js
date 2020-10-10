@@ -11,8 +11,8 @@
  * the sum from 1 to `upperBound / n`.
  * 2. The sum from 1 to `k` is equal to `k(k+1)/2`.
  *
- * @param {*} n Divisor
- * @param {*} upperBound Maximum number to include in the sum
+ * @param {number} n Divisor
+ * @param {number} upperBound Maximum number to include in the sum
  * @returns The sum of all numbers less than `upperBound` that are divisible by `n`
  */
 export function sumDivisibleByN(n, upperBound) {
