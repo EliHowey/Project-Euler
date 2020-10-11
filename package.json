@@ -17,7 +17,7 @@
 		"url": "git+https://github.com/EliHowey/project-euler.git"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Eli Howey",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/EliHowey/project-euler/issues"
