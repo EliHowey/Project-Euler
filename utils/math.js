@@ -22,6 +22,46 @@ export function gcd(a, b) {
 }
 
 /**
+ * Determines whether n is prime.
+ *
+ * @param {number} n Number to test for primality
+ */
+export function isPrime(n) {
+	if (n <= 1) {
+		return false;
+	}
+
+	// 2 is the only even prime
+	if (n % 2 === 0) {
+		return n === 2;
+	}
+
+	// Performance: Eliminate multiples of 3
+	if (n % 3 === 0) {
+		return n === 3;
+	}
+
+	// The prime factorization of n can have at most one prime greater than sqrt(n).
+	// If we can't find a prime <= sqrt(n), then all its prime factors must be
+	// greater than sqrt(n), hence n itself must be prime.
+	const sqrt = Math.floor(Math.sqrt(n));
+
+	let factor = 5;
+
+	// eslint-disable-next-line no-unmodified-loop-condition
+	while (factor <= sqrt) {
+		// All primes greater than 3 can be written as either 6k-1 or 6k+1
+		if (n % factor === 0 || n % (factor + 2) === 0) {
+			return false;
+		}
+
+		factor += 6;
+	}
+
+	return true;
+}
+
+/**
  * Finds the least common multiple of two numbers.
  *
  * @export
@@ -30,7 +70,7 @@ export function gcd(a, b) {
  * @returns The least common multiple of a and b
  */
 export function lcm(a, b) {
-	return a * b / gcd(a, b);
+	return (a * b) / gcd(a, b);
 }
 
 /**

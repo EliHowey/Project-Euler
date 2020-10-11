@@ -1,6 +1,29 @@
 import { describe, expect, test } from '@jest/globals';
 import * as utils from '../math';
 
+describe('isPrime', () => {
+	test('rejects 1', () => {
+		expect(utils.isPrime(1)).toBeFalsy();
+	});
+
+	test('accepts 2 and 3', () => {
+		expect(utils.isPrime(2)).toBeTruthy();
+		expect(utils.isPrime(3)).toBeTruthy();
+	});
+
+	test('rejects multiples of 2 and 3', () => {
+		expect(utils.isPrime(4)).toBeFalsy();
+		expect(utils.isPrime(6)).toBeFalsy();
+		expect(utils.isPrime(9)).toBeFalsy();
+	});
+
+	test('handles higher numbers', () => {
+		expect(utils.isPrime(5)).toBeTruthy(); // First factor not explicitly hanlded
+		expect(utils.isPrime(97)).toBeTruthy(); // Prime
+		expect(utils.isPrime(95)).toBeFalsy(); // Divisible by 5
+	});
+});
+
 describe('removeAllFactors', () => {
 	const n = 2 ** 3 * 3; // = 24
 
