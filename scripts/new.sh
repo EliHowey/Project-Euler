@@ -13,9 +13,11 @@ normalizedNum=`printf %03d $problemNumber`
 
 # Test for the existence of the files to create; if they exist, don't overwrite
 
-metadataFilename="metadata/$normalizedNum.json"
-scriptFilename="solutions/$normalizedNum/$normalizedNum.js"
-testFilename="solutions/$normalizedNum/$normalizedNum.test.js"
+metadataFilename="src/metadata/$normalizedNum.json"
+
+solutionDir="src/solutions/$normalizedNum"
+scriptFilename="$solutionDir/$normalizedNum.js"
+testFilename="$solutionDir/$normalizedNum.test.js"
 
 if [ -f "$metadataFilename" ]; then
 	echo "Cannot create files: $metadataFilename already exists."; exit 0
@@ -38,7 +40,7 @@ echo -e "{
 }" >> $metadataFilename
 
 # Create directory for script and test files
-mkdir -p "solutions/$normalizedNum"
+mkdir -p $solutionDir
 
 # Create script file
 echo -e "// Add arrow functions for each of your solutions to this array

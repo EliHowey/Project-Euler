@@ -30,12 +30,12 @@ function getMetadata(problemNumber) {
 			.padStart(3, '0');
 
 		const metadataBuffer = fs.readFileSync(
-			`./metadata/${normalizedProblemNumber}.json`
+			`src/metadata/${normalizedProblemNumber}.json`
 		);
-		return JSON.parse(metadataBuffer);
+		return JSON.parse(metadataBuffer.toString());
 	} catch (error) {
 		throw new Error(
-			`Could not fetch metadata for Problem ${problemNumber}`
+			`Could not fetch metadata for Problem ${problemNumber}: ${error.message}`
 		);
 	}
 }
