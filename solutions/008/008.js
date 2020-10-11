@@ -41,7 +41,7 @@ export function problem008v0(n) {
 	for (let i = 0; i <= INPUT.length - n; i++) {
 		const product = INPUT.slice(i, i + n)
 			.split('')
-			.reduce((acc, num) => acc * num.toString(), 1);
+			.reduce((acc, num) => acc * +num, 1);
 
 		if (product > maxProduct) {
 			maxProduct = product;
@@ -73,11 +73,10 @@ export function problem008v1(n) {
 			// Streaming won't work if the product is 0
 			currentProduct = getSubstringProduct(i - n + 1, n);
 		} else {
-			currentProduct *= INPUT[i]; // Multiply by last digit of current sequence
+			currentProduct *= +INPUT[i]; // Multiply by last digit of current sequence
 
-			if (INPUT[i - n] !== '0') {
-				currentProduct /= INPUT[i - n]; // Divide by first digit of previous sequence
-			}
+			// Divide by first digit of previous sequence (note: we know it's not 0)
+			currentProduct /= +INPUT[i - n];
 		}
 
 		if (currentProduct > maxProduct) {
@@ -88,8 +87,14 @@ export function problem008v1(n) {
 	return maxProduct;
 }
 
+/**
+ * Returns the product of all digits of the specified substring of `INPUT`.
+ *
+ * @param {number} startPos Index of the first character of the substring
+ * @param {number} length Length of the substring
+ */
 function getSubstringProduct(startPos, length) {
 	return INPUT.slice(startPos, startPos + length)
 		.split('')
-		.reduce((acc, num) => acc * num.toString(), 1);
+		.reduce((acc, num) => acc * +num, 1);
 }
