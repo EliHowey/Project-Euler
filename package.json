@@ -25,6 +25,7 @@
 	"homepage": "https://github.com/EliHowey/project-euler#readme",
 	"devDependencies": {
 		"@jest/globals": "^26.5.2",
+		"axios": "^0.20.0",
 		"coveralls": "^3.1.0",
 		"eslint": "^7.11.0",
 		"eslint-config-standard": "^14.1.1",

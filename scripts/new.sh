@@ -13,15 +13,9 @@ normalizedNum=`printf %03d $problemNumber`
 
 # Test for the existence of the files to create; if they exist, don't overwrite
 
-metadataFilename="src/metadata/$normalizedNum.json"
-
 solutionDir="src/solutions/$normalizedNum"
 scriptFilename="$solutionDir/$normalizedNum.js"
 testFilename="$solutionDir/$normalizedNum.test.js"
-
-if [ -f "$metadataFilename" ]; then
-	echo "Cannot create files: $metadataFilename already exists."; exit 0
-fi
 
 if [ -f "$scriptFilename" ]; then
 	echo "Cannot create files: $scriptFilename already exists."; exit 0
@@ -30,14 +24,6 @@ fi
 if [ -f "$testFilename" ]; then
 	echo "Cannot create files: $testFilename already exists."; exit 0
 fi
-
-# Create metadata file
-echo -e "{
-	\"problem\": $problemNumber,
-	\"name\": \"\",
-	\"difficulty\": 0.05,
-	\"question\": [\"\"]
-}" >> $metadataFilename
 
 # Create directory for script and test files
 mkdir -p $solutionDir
