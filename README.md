@@ -1,6 +1,6 @@
-# project-euler-js
+# Project Euler CLI
 
-Javascript solutions to Project Euler problems
+A simple, Node.js-based CLI to see data about Project Euler problems, along with my Javascript solutions to them
 
 [![Build Status](https://travis-ci.com/EliHowey/project-euler.svg?token=oBB3yUNYKz5Q6kwVt6gw&branch=main)](https://travis-ci.com/EliHowey/project-euler)
 [![Coverage Status](https://coveralls.io/repos/github/EliHowey/project-euler/badge.svg?branch=main)](https://coveralls.io/github/EliHowey/project-euler?branch=main)
@@ -9,11 +9,27 @@ Javascript solutions to Project Euler problems
 
 ## About this repository
 
-Run `npm start` to start the CLI. It will prompt you for a problem number, then display information about the problem you select.
+The CLI is a Node app, so it depends on npm.
 
-## About Project Euler
+### Initial Setup
 
-(taken from the [Project Euler](http://projecteuler.net/) website)
+```bash
+npm i
+```
+
+### Run the CLI
+
+```bash
+npm start
+```
+
+The CLI will prompt you for a problem number, then display information about the problem from the [Project Euler](http://projecteuler.net/) website, and show all of my solutions to that problem and their respective runtimes.
+
+### Use Rights
+
+Feel free to copy and modify the CLI code, but **please don't claim the problem solutions as your own!**
+
+## About Project Euler (taken from the [Project Euler](http://projecteuler.net/) website)
 
 ### What is Project Euler?
 
