@@ -62,6 +62,18 @@ export function isPrime(n) {
 }
 
 /**
+ * Determines whether (a, b, c) is a Pythagorean triple.
+ *
+ * @param {number} a
+ * @param {number} b
+ * @param {number} c
+ * @returns True if a^2 + b^2 = c^2, false otherwise
+ */
+export function isPythagoreanTriple(a, b, c) {
+	return a * a + b * b === c * c;
+}
+
+/**
  * Finds the least common multiple of two numbers.
  *
  * @export
