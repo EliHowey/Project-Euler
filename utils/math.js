@@ -22,6 +22,37 @@ export function gcd(a, b) {
 }
 
 /**
+ * Returns an array of primes below n, using the sieve of Eratosthenes.
+ *
+ * @param {number} n Upper bound
+ */
+export function getPrimes(n) {
+	const primes = [...new Array(n)].map((_) => true);
+	primes[0] = primes[1] = false;
+
+	for (let i = 4; i < n; i += 2) {
+		primes[i] = false;
+	}
+
+	const primeLimit = Math.floor(Math.sqrt(n));
+	for (let i = 3; i <= primeLimit; i += 2) {
+		if (primes[i]) {
+			for (let multiple = 2; multiple <= n / i; multiple++) {
+				primes[multiple * i] = false;
+			}
+		}
+	}
+
+	return primes
+		.map((val, index) => {
+			if (val) {
+				return index;
+			}
+		})
+		.filter(Boolean);
+}
+
+/**
  * Determines whether n is prime.
  *
  * @param {number} n Number to test for primality
@@ -100,6 +131,15 @@ export function removeAllFactors(n, factor) {
 	}
 
 	return quotient;
+}
+
+/**
+ * Adds together a list of numbers.
+ *
+ * @param {number[]} nums Array of numbers
+ */
+export function sum(nums) {
+	return nums.reduce((acc, val) => acc + val, 0);
 }
 
 /**
