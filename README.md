@@ -21,3 +21,7 @@ The intended audience include students for whom the basic curriculum is not feed
 ### Can anyone solve the problems?
 
 The problems range in difficulty and for many the experience is inductive chain learning. That is, by solving one problem it will expose you to a new concept that allows you to undertake a previously inaccessible problem. So the determined participant will slowly but surely work his/her way through every problem.
+
+## About this repository
+
+Run `node index.js` to start the CLI. It will prompt you for a problem number, then display information about the problem you select.
