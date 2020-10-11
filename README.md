@@ -7,6 +7,8 @@ A simple, Node.js-based CLI to see data about Project Euler problems, along with
 
 ![Eli Howey's stats on Project Euler](https://projecteuler.net/profile/EliHowey.png)
 
+![A terminal running Project Euler Problem 1 in the CLI](img/cli.jpg)
+
 ## About this repository
 
 The CLI is a Node app, so it depends on npm.
