@@ -8,7 +8,9 @@
 		"coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
 		"new": "./scripts/new.sh",
 		"start": "node src/index.js",
-		"test": "NODE_OPTIONS=--experimental-vm-modules jest"
+		"test": "NODE_OPTIONS=--experimental-vm-modules jest",
+		"test:coverage": "npm test -- --coverage",
+		"test:ci": "npm run test:coverage && cat ./coverage/lcov.info | coveralls"
 	},
 	"repository": {
 		"type": "git",
@@ -23,6 +25,7 @@
 	"homepage": "https://github.com/EliHowey/project-euler#readme",
 	"devDependencies": {
 		"@jest/globals": "^26.5.2",
+		"coveralls": "^3.1.0",
 		"eslint": "^7.11.0",
 		"eslint-config-standard": "^14.1.1",
 		"eslint-plugin-import": "^2.22.1",

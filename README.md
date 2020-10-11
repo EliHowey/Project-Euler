@@ -2,6 +2,9 @@
 
 Javascript solutions to Project Euler problems
 
+[![Build Status](https://travis-ci.com/EliHowey/project-euler.svg?token=oBB3yUNYKz5Q6kwVt6gw&branch=main)](https://travis-ci.com/EliHowey/project-euler)
+[![Coverage Status](https://coveralls.io/repos/github/EliHowey/project-euler/badge.svg?branch=main)](https://coveralls.io/github/EliHowey/project-euler?branch=main)
+
 ![Eli Howey's stats on Project Euler](https://projecteuler.net/profile/EliHowey.png)
 
 ## About this repository
