@@ -44,7 +44,13 @@ mkdir -p "solutions/$normalizedNum"
 echo -e "// Add arrow functions for each of your solutions to this array
 export const solutions = [() => problem${normalizedNum}v0()];
 
-export function problem${normalizedNum}v0() {}" >> $scriptFilename
+/**
+ * Description of the solution function.
+ *
+ * @param {*} paramName Parameter description
+ * @returns Return value
+ */
+export function problem${normalizedNum}v0(paramName) {}" >> $scriptFilename
 
 # Create test file
 echo -e "import { describe, expect, test } from '@jest/globals';
